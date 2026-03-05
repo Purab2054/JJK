@@ -39,14 +39,23 @@ body{
   padding-right:5px;
 }
 
-/* BUTTONS */
+/* BUTTON CONTAINER */
+.btn-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  margin-top:20px;
+  position:relative;
+}
+
+/* BUTTON STYLE */
 button{
   padding:12px 30px;
   font-size:18px;
   border:none;
   border-radius:30px;
   cursor:pointer;
-  margin:10px;
   transition:0.3s;
 }
 
@@ -55,14 +64,14 @@ button{
   color:white;
 }
 
+.yes:hover{
+  transform:scale(1.1);
+}
+
 .no{
   background:white;
   color:#ff1a75;
-  position:absolute;
-}
-
-.yes:hover{
-  transform:scale(1.1);
+  position:relative;
 }
 
 /* ROMANTIC GALLERY */
@@ -132,8 +141,10 @@ button{
 
 <div id="message"></div>
 
-<button class="yes" onclick="acceptLove()">YES 💖</button>
-<button class="no" id="noBtn">NO 😜</button>
+<div class="btn-container">
+  <button class="yes" onclick="acceptLove()">YES 💖</button>
+  <button class="no" id="noBtn">NO 😜</button>
+</div>
 
 <div class="gallery">
   <img src="https://i.postimg.cc/3J4nkwFN/00f06fd3-88fb-4818-af80-504a7108e777.jpg">
@@ -149,6 +160,7 @@ button{
 <script>
 const msg = "You are the most beautiful part of my life 💖 Will You Be Mine Forever? 💍";
 let index=0;
+
 function typeWriter(){
   if(index<msg.length){
     document.getElementById("message").innerHTML += msg.charAt(index);
@@ -158,11 +170,13 @@ function typeWriter(){
 }
 typeWriter();
 
-/* NO BUTTON RUN */
+/* NO BUTTON RUN AWAY */
 const noBtn=document.getElementById("noBtn");
+
 noBtn.addEventListener("mouseover",function(){
-  noBtn.style.top=Math.random()*80+"%";
-  noBtn.style.left=Math.random()*80+"%";
+  noBtn.style.position="absolute";
+  noBtn.style.top=Math.random()*70+"%";
+  noBtn.style.left=Math.random()*70+"%";
 });
 
 /* YES CLICK */
