@@ -1,209 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>For Shruti 💖</title>
+<title>For Harshali 💖</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-  body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    background: #fff0f5;
-    text-align: center;
-    color: #4b0033;
-    overflow-x: hidden;
-  }
+body{
+  margin:0;
+  font-family:Georgia, serif;
+  background:linear-gradient(to right,#ffe6f0,#fff0f5);
+  color:#4b0033;
+  text-align:center;
+  overflow-x:hidden;
+}
 
-  /* Hero Section */
-  .hero {
-    position: relative;
-    height: 80vh;
-    background: url('https://i.postimg.cc/mg73WNwj/25d80bf8-5c34-407d-b393-426ae0ccb6da.jpg') no-repeat center top;
-    background-size: contain;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* BIG PHOTO */
+.hero img{
+  width:300px;
+  border-radius:20px;
+  margin-top:30px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+  animation:fadeIn 1.5s ease-in-out;
+}
 
-  .overlay {
-    background: rgba(0,0,0,0.4);
-    padding: 30px 20px;
-    border-radius: 15px;
-    color: white;
-  }
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
 
-  h1 {
-    font-size: 48px;
-    margin: 0 0 10px;
-    animation: heartbeat 1.5s infinite;
-  }
+/* TYPEWRITER TEXT */
+#message{
+  font-size:28px;
+  min-height:50px;
+  margin:25px 0;
+  border-right:2px solid #ff4da6;
+  padding-right:4px;
+  display:inline-block;
+}
 
-  @keyframes heartbeat {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-  }
+/* BUTTONS */
+button{
+  padding:12px 28px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  margin:12px;
+  transition:0.3s;
+}
 
-  p {
-    font-size: 20px;
-    max-width: 600px;
-    margin: auto;
-  }
+.yes{
+  background:#ff1a75;
+  color:white;
+}
+.no{
+  background:white;
+  color:#ff1a75;
+  position:absolute;
+}
 
-  /* Floating Hearts */
-  .heart {
-    position: absolute;
-    font-size: 24px;
-    color: #ff4da6;
-    animation: floatUp 5s linear infinite;
-    user-select: none;
-    pointer-events: none;
-  }
-  @keyframes floatUp {
-    0% {transform: translateY(0) scale(1); opacity:1;}
-    100% {transform: translateY(-500px) scale(1.5); opacity:0;}
-  }
+/* GALLERY */
+.gallery{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:30px;
+}
 
-  /* Gallery */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 50px 20px;
-    justify-items: center;
-  }
-  .gallery img {
-    width: 100%;
-    max-width: 250px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    transition: 0.3s;
-    cursor: pointer;
-  }
-  .gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-  }
+.gallery img{
+  width:90px;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  transition:0.3s;
+}
 
-  /* Message */
-  .message {
-    padding: 40px 20px;
-    max-width: 700px;
-    margin: auto;
-    font-size: 20px;
-    line-height:1.8;
-  }
+.gallery img:hover{
+  transform:scale(1.1);
+}
 
-  button {
-    padding: 12px 28px;
-    border: none;
-    background: #ff4da6;
-    color: white;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-size: 18px;
-    transition: 0.3s;
-  }
-  button:hover {
-    transform: scale(1.05);
-    background: #ff1a75;
-  }
+/* HEART ANIMATION */
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation:rise 5s linear infinite;
+  color:#ff4da6;
+}
 
-  footer {
-    margin-top: 40px;
-    padding: 15px;
-    background: #ff4da6;
-    color: white;
-    font-size: 16px;
-  }
-
-  /* Modal */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-  }
-  .modal-content {
-    background: #fff0f5;
-    padding: 40px 20px;
-    border-radius: 15px;
-    color: #4b0033;
-    max-width: 400px;
-    text-align: center;
-    font-size: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    animation: pop 0.5s ease;
-  }
-  @keyframes pop {
-    0% { transform: scale(0.5); opacity:0;}
-    100% { transform: scale(1); opacity:1;}
-  }
-
+@keyframes rise{
+  0%{transform:translateY(0);opacity:1;}
+  100%{transform:translateY(-700px);opacity:0;}
+}
 </style>
 </head>
+
 <body>
 
-  <!-- Hero -->
-  <div class="hero">
-    <div class="overlay">
-      <h1>Shruti 💖</h1>
-      <p>You are my peace, my happiness, and my forever. Every moment with you is magical.</p>
-    </div>
-  </div>
+<div class="hero">
+  <img src="https://i.postimg.cc/m2z8Pry1/626cacd3-7503-4cc7-9fbf-712e22ef2a08.jpg">
+</div>
 
-  <!-- Gallery -->
-  <div class="gallery">
-    <img src="https://i.postimg.cc/mg73WNwj/25d80bf8-5c34-407d-b393-426ae0ccb6da.jpg" alt="Shruti 1">
-    <img src="https://i.postimg.cc/9QyPHtp1/1a95742d-2014-4ef5-a367-e5bb7b9099a5.jpg" alt="Shruti 2">
-    <img src="https://i.postimg.cc/CxbCpHNP/877ce863-aecd-4889-9ad9-49d06269835e.jpg" alt="Shruti 3">
-    <img src="https://i.postimg.cc/L8jkFBTt/d937b2e7-10ba-4847-8ecb-98eae90df49d.jpg" alt="Shruti 4">
-  </div>
+<div id="message"></div>
 
-  <!-- Message -->
-  <div class="message">
-    Every day I choose you, every day I admire you, and every day I feel lucky to have you in my life. 💕
-    <br>
-    <button id="loveBtn">Tap for Love</button>
-  </div>
+<button class="yes" onclick="acceptLove()">YES 💖</button>
+<button class="no" id="noBtn">NO 😜</button>
 
-  <footer>Made with all my heart — Purab 💖</footer>
+<div class="gallery">
+  <img src="https://i.postimg.cc/3J4nkwFN/00f06fd3-88fb-4818-af80-504a7108e777.jpg">
+  <img src="https://i.postimg.cc/J4DPsh5B/b9b5a1e9-7dc9-4231-a1f6-a5017e509055.jpg">
+  <img src="https://i.postimg.cc/L40x4PL4/c21b04bc-6f1d-4e7c-9e24-d38824dcbc76.jpg">
+  <img src="https://i.postimg.cc/HWP6WMX5/bc5cc574-7078-4c68-88f4-947111237242.jpg">
+</div>
 
-  <!-- Modal -->
-  <div id="loveModal" class="modal">
-    <div class="modal-content">
-      💖 You are my world, my smile, my everything! 💖
-    </div>
-  </div>
+<script>
+/* TYPEWRITER TEXT */
+const msg = "Harshali… Tumhari ek muskurahat ne meri duniya palat di… 💕 Will You Be Mine Forever? 💍";
+let index=0;
+function typeWriter(){
+  if(index<msg.length){
+    document.getElementById("message").innerHTML += msg.charAt(index);
+    index++;
+    setTimeout(typeWriter,45);
+  }
+}
+typeWriter();
 
-  <!-- Floating hearts script -->
-  <script>
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.innerText = '💖';
-      heart.style.left = Math.random() * window.innerWidth + 'px';
-      heart.style.fontSize = 12 + Math.random() * 24 + 'px';
-      heart.style.animationDuration = 3 + Math.random() * 2 + 's';
-      document.body.appendChild(heart);
-      setTimeout(()=>heart.remove(),5000);
-    }
-    setInterval(createHeart,500);
+/* NO BUTTON RUN */
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", function(){
+  noBtn.style.top = Math.random()*80 + "%";
+  noBtn.style.left = Math.random()*80 + "%";
+});
 
-    // Modal
-    const btn = document.getElementById('loveBtn');
-    const modal = document.getElementById('loveModal');
-    btn.onclick = () => {
-      modal.style.display = 'flex';
-      setTimeout(()=>modal.style.display='none', 2500);
-    }
-  </script>
+/* YES CLICK */
+function acceptLove(){
+  document.getElementById("message").innerHTML = "💖 I Always Knew You Would Say Yes… You Made My Heart Complete 💖";
+  makeHearts();
+}
+
+/* FLOATING HEARTS */
+function makeHearts(){
+  for(let i=0;i<50;i++){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left = Math.random()*window.innerWidth+"px";
+    heart.style.fontSize = (15 + Math.random()*30)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},5000);
+  }
+}
+</script>
 
 </body>
 </html>
